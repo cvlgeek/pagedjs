@@ -61,11 +61,13 @@
         width: 0;
     } 
 
+    /*
     .pagedjs_right_page{
         z-index: 10;
         position: relative;
         left: calc(var(--pagedjs-bleed-left)*-1);
     }
+    */
 
     /* show the margin-box */
 
