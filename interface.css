@@ -94,7 +94,7 @@
 
     /* uncomment this part for recto/verso book : ------------------------------------ */
 
-    /*
+    /**/
     .pagedjs_pages {
         flex-direction: column;
         width: 100%;
