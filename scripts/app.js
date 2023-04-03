@@ -40,18 +40,23 @@ var ctrlKeys = {
 // ADD SHORTCUT KEYS TO APP
 window.addEventListener('keydown', function (event) {
   if(event.ctrlKey){
-    if(ctrlKeys.hasOwnProperty(event.key)){
+    aKeys = ctrlKeys.keys();
+    sKey = (event.key).toUpperCase();
+    if(aKeys.includes(sKey)){
       event.preventDefault();
-      ctrlKeys[event.key].func();  
+      ctrlKeys[sKey].func();
     }
   }
 })
 
 // ADD SHORTCUT KEYS TO EDITOR
-for(i=0; i<ctrlKeys.length; i++){
-  editor.commands.addCommand({
-    name: ctrlKeys[i].name,
-    bindKey: { win: "Ctrl-" + ctrlKeys[i].key, mac: "Command-" + ctrlKeys[i].key },
-    exec: ctrlKeys[i].func
-  });
+function add2Ace(){
+  aKeys = ctrlKeys.keys();
+  aKeys.forEach(function(v,i,a){
+    editor.commands.addCommand({
+      name: ctrlKeys[aKeys[i]].name,
+      bindKey: { win: "Ctrl-"+aKeys[i], mac: "Command-"+aKeys[i] },
+      exec: ctrlKeys[aKeys[i]].func
+    });
+  })
 }
