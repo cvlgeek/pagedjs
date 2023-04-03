@@ -13,24 +13,34 @@ function previewDoc(){
   htmlDoc.close();
 }
 
-editor.commands.addCommand({
-  name: "myCommand",
-  bindKey: { win: "Ctrl-P", mac: "Command-P" },
-  exec: function (editor) {
-    document.getElementById('preview').contentWindow.print();;
-  }
-});
-
 var ctrlKeys = {
-  p: function(){document.getElementById('preview').contentWindow.print();},
-  P: function(){document.getElementById('preview').contentWindow.print();}
+  P: {
+    name: "Print",
+    func: function(){
+      document.getElementById('preview').contentWindow.print();
+    }
+  },
+  S: {
+    name: "Save",
+    func: function(){
+      alert("I don't know how to save this yet.");
+    }
+  }
+}
+
+for(i=0; i<ctrlKeys.length; i++){
+  editor.commands.addCommand({
+    name: ctrlKeys[i].name,
+    bindKey: { win: "Ctrl-" + ctrlKeys[i].key, mac: "Command-" + ctrlKeys[i].key },
+    exec: ctrlKeys[i].func
+  });
 }
 
 window.addEventListener('keydown', function (event) {
   if(event.ctrlKey){
-    alert(event.key);
+    alert(event.key.toUpperCase);
     if(ctrlKeys.hasOwnProperty(event.key)){
-        ctrlKeys[event.key];
+        ctrlKeys[event.key].func();
         event.preventDefault();
     }
   }
