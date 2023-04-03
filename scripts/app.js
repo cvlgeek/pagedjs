@@ -41,8 +41,8 @@ var ctrlKeys = {
 window.addEventListener('keydown', function (event) {
   if(event.ctrlKey){
     if(ctrlKeys.hasOwnProperty(event.key)){
-        ctrlKeys[event.key].func();
-        event.preventDefault();
+      event.preventDefault();
+      ctrlKeys[event.key].func();  
     }
   }
 })
