@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" integrity="sha512-Km4SIAd8d2xB73+j5NmOjzIxriadCWR9xapO/YARlvfwkgrWneSpV/6GeaRzVLNckFHzUn9Iv1oGbsDW/HtTZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     function previewDoc(){
       var iframe = document.getElementById('preview');
@@ -17,14 +16,17 @@
   </script>
 </head>
 <body>
-  <div id="editor" onChange="previewDoc();">
-    hello world
-  </div>
+  <script src=https://ajaxorg.github.io/ace-builds/src-noconflict/ace.js></script>
+  <div id=codeEditor style=height:80vh></div>
+  <script>
+      var editor = ace.edit('codeEditor');
+      editor.session.setUseWorker(false);
+      editor.setShowPrintMargin(false);
+      editor.setReadOnly(true);
+  </script>
+  
+  
+  
   <iframe id="preview" src=''></iframe>
 
-  <script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/javascript");
-  </script>
 </body>
