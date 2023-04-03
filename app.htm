@@ -5,16 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
+    window.addEventListener('keydown', function (event) {
+      if(event.ctrlKey){
+        switch(event.keyCode){
+          case 80:
+            document.getElementById('preview').contentWindow.print();
+            event.preventDefault();
+            break;
+        }
+        switch(event.key){
+          case 's':
+          case 'S':
+            alert('s was pressed');
+        }
+      }
+    })
     function previewDoc(){
       var htmlSource = editor.getValue();
       var htmlDoc = document.getElementById('preview').contentDocument;
       htmlDoc.open();
       htmlDoc.write(htmlSource);
       htmlDoc.close();
-    }
-    function printPreview(){
-      window.frames["preview"].focus();
-      window.frames["preview"].print();
     }
   </script>
   <style>
