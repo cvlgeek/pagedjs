@@ -4,64 +4,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>
-    window.addEventListener('keydown', function (event) {
-      if(event.ctrlKey){
-        switch(event.keyCode){
-          case 80:
-            document.getElementById('preview').contentWindow.print();
-            event.preventDefault();
-            break;
-        }
-        switch(event.key){
-          case 's':
-          case 'S':
-            alert('s was pressed');
-        }
-      }
-    })
-    function previewDoc(){
-      var htmlSource = editor.getValue();
-      var htmlDoc = document.getElementById('preview').contentDocument;
-      htmlDoc.open();
-      htmlDoc.write(htmlSource);
-      htmlDoc.close();
-    }
-  </script>
-  <style>
-    #codeEditor{
-      display:inline;
-      float:left;
-      width:48%;
-      height:800px;
-      border:1px solid red;
-    }
-    #preview{
-      display:inline;
-      float:left;
-      width:48%;
-      height:800px;
-      vorder:1px solid green;
-    }
-  </style>
+
+  <link href="https://cvlgeek.github.io/pagedjs/styles/app.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
   <div id="menu">
     <a href="" onclick="document.getElementById('preview').contentWindow.print();">print</a>
   </div>
-  <script src=https://ajaxorg.github.io/ace-builds/src-noconflict/ace.js></script>
   <div id=codeEditor></div>
-  <script>
-    var editor = ace.edit('codeEditor');
-    editor.session.setUseWorker(false);
-    editor.setShowPrintMargin(false);
-    editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/html");
-    editor.session.on('change', function(){previewDoc()});
-  </script>
-  
-  
-  
   <iframe id="preview" src="https://cvlgeek.github.io/pagedjs/paged.htm"></iframe>
-
+  
+  <script src=https://ajaxorg.github.io/ace-builds/src-noconflict/ace.js></script>
+  <script src=https://cvlgeek.github.io/pagedjs/scripts/app.js></script>
+  <script src=https://cvlgeek.github.io/pagedjs/scripts/ctrlKeys.js></script>
 </body>
