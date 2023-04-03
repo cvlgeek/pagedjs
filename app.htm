@@ -7,11 +7,10 @@
   <script>
     function previewDoc(){
       var htmlSource = editor.getValue();
-      var iframe = document.getElementById('preview');
-      iframe = iframe.contentWindow || ( iframe.contentDocument.document || iframe.contentDocument);
-      iframe.document.open();
-      iframe.document.write(htmlSource);
-      iframe.document.close();
+      var htmlDoc = document.getElementById('preview').contentDocument;
+      htmlDoc.open();
+      htmlDoc.write(htmlSource);
+      htmlDoc.close();
     }
   </script>
   <style>
@@ -33,7 +32,7 @@
 </head>
 <body>
   <a href="" onclick="previewDoc();">get content</a>
-  <a href="" onclick="window.frames["preview"].contentWindow.print();">print</a>
+  <a href="" onclick="document.getElementById('preview').contentDocument.print();">print</a>
   <script src=https://ajaxorg.github.io/ace-builds/src-noconflict/ace.js></script>
   <div id=codeEditor></div>
   <script>
