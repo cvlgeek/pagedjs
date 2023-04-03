@@ -6,11 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
     function previewDoc(){
-      // var iframe = document.getElementById('preview');
-      // iframe = iframe.contentWindow || ( iframe.contentDocument.document || iframe.contentDocument);
-      // iframe.document.open();
       var htmlSource = editor.getValue();
-      alert(htmlSource);
+      var iframe = document.getElementById('preview');
+      iframe = iframe.contentWindow || ( iframe.contentDocument.document || iframe.contentDocument);
+      iframe.document.open();
       // iframe.document.write(htmlSource);
       // iframe.document.close();
     }
@@ -34,6 +33,7 @@
 </head>
 <body>
   <a href="" onclick="previewDoc();">get content</a>
+  <a href="" onclick="window.frames["preview"].contentWindow.print();">print</a>
   <script src=https://ajaxorg.github.io/ace-builds/src-noconflict/ace.js></script>
   <div id=codeEditor></div>
   <script>
