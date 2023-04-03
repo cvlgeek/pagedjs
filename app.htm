@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" integrity="sha512-Km4SIAd8d2xB73+j5NmOjzIxriadCWR9xapO/YARlvfwkgrWneSpV/6GeaRzVLNckFHzUn9Iv1oGbsDW/HtTZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setMode("ace/mode/javascript");
+  </script>
+  <script>
+    function previewDoc(){
+      var iframe = document.getElementById('preview');
+      iframe = iframe.contentWindow || ( iframe.contentDocument.document || iframe.contentDocument);
+      iframe.document.open();
+      var htmlSource = document.getElementById('htmlSource').value
+      iframe.document.write(htmlSource);
+      iframe.document.close();
+    }
+  </script>
+</head>
+<body>
+  <div id="editor" onChange="previewDoc();">
+  </div>
+  <div id="preview">
+  </div>
+</body>
