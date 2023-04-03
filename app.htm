@@ -42,7 +42,7 @@
     editor.setShowPrintMargin(false);
     editor.setTheme("ace/theme/monokai");
     editor.session.setMode("ace/mode/html");
-    editor.textInput.getElement().addEventListener('keyup',previewDoc());
+    editor.session.on('change', function(){previewDoc()});
   </script>
   
   
