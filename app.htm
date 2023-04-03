@@ -33,9 +33,11 @@
   <script src=https://ajaxorg.github.io/ace-builds/src-noconflict/ace.js></script>
   <div id=codeEditor></div>
   <script>
-      var editor = ace.edit('codeEditor');
-      editor.session.setUseWorker(false);
-      editor.setShowPrintMargin(false);
+    var editor = ace.edit('codeEditor');
+    editor.session.setUseWorker(false);
+    editor.setShowPrintMargin(false);
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setMode("ace/mode/javascript");
   </script>
   
   
