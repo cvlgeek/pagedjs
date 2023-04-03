@@ -9,7 +9,7 @@
       var iframe = document.getElementById('preview');
       iframe = iframe.contentWindow || ( iframe.contentDocument.document || iframe.contentDocument);
       iframe.document.open();
-      var htmlSource = document.getElementById('codeEditor').value
+      var htmlSource = editor.textInput.getElement().value
       alert(htmlSource);
       //iframe.document.write(htmlSource);
       //iframe.document.close();
@@ -41,6 +41,7 @@
     editor.setShowPrintMargin(false);
     editor.setTheme("ace/theme/monokai");
     editor.session.setMode("ace/mode/html");
+    editor.textInput.getElement().addEventListener('keyup',previewDoc());
   </script>
   
   
