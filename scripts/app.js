@@ -5,7 +5,7 @@ editor.setShowPrintMargin(false);
 editor.setTheme("ace/theme/monokai");
 editor.session.setMode("ace/mode/html");
 editor.session.on('change', function(){parseDoc();});
-parseDoc();
+editor.insert("Hello World");
 
 // PARSE EDITOR CONTENT
 function parseDoc(){
