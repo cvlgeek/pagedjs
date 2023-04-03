@@ -14,10 +14,24 @@
       iframe.document.close();
     }
   </script>
+  <style>
+    #codeEditor{
+      display:inline;
+      float:left;
+      width:48%;
+      height:99%;
+    }
+    #preview{
+      display:inline;
+      float:left;
+      width:48%;
+      height:100%;
+    }
+  </style>
 </head>
 <body>
   <script src=https://ajaxorg.github.io/ace-builds/src-noconflict/ace.js></script>
-  <div id=codeEditor style=height:80vh></div>
+  <div id=codeEditor></div>
   <script>
       var editor = ace.edit('codeEditor');
       editor.session.setUseWorker(false);
