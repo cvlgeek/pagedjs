@@ -48,7 +48,7 @@ var ctrlKeys = {
 // ADD SHORTCUT KEYS TO APP
 window.addEventListener('keydown', function (event) {
   if(event.ctrlKey){
-    aKeys = ctrlKeys.keys();
+    aKeys = Object.keys(ctrlKeys);
     sKey = (event.key).toUpperCase();
     if(aKeys.includes(sKey)){
       event.preventDefault();
