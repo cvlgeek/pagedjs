@@ -8,8 +8,15 @@ editor.session.on('change', function(){parseDoc();});
 
 // PARSE EDITOR CONTENT
 function parseDoc(){
-  var sHead = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta http-equiv='X-UA-Compatible' content='IE=edge'><meta name='viewport' content='width=device-width, initial-scale=1.0'><script>window.PagedConfig={auto:false,after:(flow)=>{console.log('after',flow)},};</script><script src='https://cvlgeek.github.io/pagedjs/scripts/paged.polyfill.js'></script><link href='https://cvlgeek.github.io/pagedjs/styles/paged.css' rel='stylesheet' type='text/css'/></head><body>"
-  var htmlSource = sHead + editor.getValue() + "<script>window.PagedPolyfill.preview();</script></body></html>";
+  var a = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta http-equiv='X-UA-Compatible' content='IE=edge'>";
+  a = a + "<meta name='viewport' content='width=device-width, initial-scale=1.0'>";
+  a = a + "<script>window.PagedConfig={auto:false,after:(flow)=>{console.log('after',flow)},};</script>";
+  a = a + "<script src='https://cvlgeek.github.io/pagedjs/scripts/paged.polyfill.js'>";
+  a = a + "</script><link href='https://cvlgeek.github.io/pagedjs/styles/paged.css' rel='stylesheet' type='text/css'/></head><body>";
+  var b = editor.getValue(); // parse this for Markdown flags
+  var c = "<script>window.PagedPolyfill.preview();</script>"; // may need to call math.js and mathjax before PagedPolyfill.preview()
+  c = c + "</body></html>";
+  var htmlSource = a+b+c;
   previewDoc(htmlSource);
 }
 
