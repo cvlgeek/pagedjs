@@ -4,7 +4,8 @@ editor.session.setUseWorker(false);
 editor.setShowPrintMargin(false);
 editor.setTheme("ace/theme/monokai");
 editor.session.setMode("ace/mode/html");
-editor.session.on('change', function(){parseDoc();});    
+editor.session.on('change', function(){parseDoc();});
+parseDoc();
 
 // PARSE EDITOR CONTENT
 function parseDoc(){
