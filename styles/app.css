@@ -1,0 +1,14 @@
+    #codeEditor{
+      display:inline;
+      float:left;
+      width:48%;
+      height:800px;
+      border:1px solid red;
+    }
+    #preview{
+      display:inline;
+      float:left;
+      width:48%;
+      height:800px;
+      vorder:1px solid green;
+    }
