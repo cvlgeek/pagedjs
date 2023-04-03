@@ -38,7 +38,7 @@ for(i=0; i<ctrlKeys.length; i++){
 
 window.addEventListener('keydown', function (event) {
   if(event.ctrlKey){
-    alert(event.key.toUpperCase);
+    alert(event.key.toUpperCase(););
     if(ctrlKeys.hasOwnProperty(event.key)){
         ctrlKeys[event.key].func();
         event.preventDefault();
