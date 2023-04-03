@@ -14,19 +14,21 @@ function previewDoc(){
 }
 
 editor.commands.addCommand({
-                    name: "myCommand",
-                    bindKey: { win: "Ctrl-P", mac: "Command-P" },
-                    exec: function (editor) {
-                              document.getElementById('preview').contentWindow.print();;
-                    }
+  name: "myCommand",
+  bindKey: { win: "Ctrl-P", mac: "Command-P" },
+  exec: function (editor) {
+    document.getElementById('preview').contentWindow.print();;
+  }
 });
 
 var ctrlKeys = {
   p: function(){document.getElementById('preview').contentWindow.print();},
   P: function(){document.getElementById('preview').contentWindow.print();}
 }
+
 window.addEventListener('keydown', function (event) {
   if(event.ctrlKey){
+    alert(event.key);
     if(ctrlKeys.hasOwnProperty(event.key)){
         ctrlKeys[event.key];
         event.preventDefault();
