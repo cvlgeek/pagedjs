@@ -46,8 +46,9 @@
   </style>
 </head>
 <body>
-  <a href="" onclick="previewDoc();">get content</a>
-  <a href="" onclick="document.getElementById('preview').contentWindow.print();">print</a>
+  <div id="menu">
+    <a href="" onclick="document.getElementById('preview').contentWindow.print();">print</a>
+  </div>
   <script src=https://ajaxorg.github.io/ace-builds/src-noconflict/ace.js></script>
   <div id=codeEditor></div>
   <script>
