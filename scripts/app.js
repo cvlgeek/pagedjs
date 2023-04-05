@@ -21,6 +21,7 @@ function parseDoc(){
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <script>window.PagedConfig={auto:false,after:(flow)=>{console.log('after',flow)},};</script>
 <script src='https://cvlgeek.github.io/pagedjs/scripts/paged.polyfill.js'></script>
+<script src='https://cvlgeek.github.io/pagedjs/scripts/math.js'></script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <link href='https://cvlgeek.github.io/pagedjs/styles/paged.css' rel='stylesheet' type='text/css'/></head><body>`
   var b = editor.getValue(); // parse this for Markdown flags
@@ -29,10 +30,11 @@ function parseDoc(){
     b = b.replace(/^# (.*$)/gim, '<h1>$1</h1>'); // # at beginning of line for H1
     b = b.replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>'); // > at beginning of line for blockquotes
     b = b.replace(/\*\*(.*)\*\*/gim, '<b>$1</b>'); // **bold**
-    b = b.replace(/\\(.*)\\/gim, '<i>$1</i>'); // \\italics\\
+    b = b.replace(/\\\\(.*)\\\\/gim, '<i>$1</i>'); // \\italics\\
     b = b.replace(/!\[(.*?)\]\((.*?)\)/gim, "<img alt='$1' src='$2' />"); // ![alt text](image,jpg)
     b = b.replace(/\[(.*?)\]\((.*?)\)/gim, "<a href='$2'>$1</a>"); // [title](https://www.google.com)
-    b = b.replace(/\n$/gim, '<br />');;
+    b = b.replace(/\n$/gim, '<br />'); // line break at each new line
+    b = b.replace(/$$(.*)$$/gim, '<script>math.evaluate($1)</script>'); // $$ASCI math$$
   var c = "<script>window.PagedPolyfill.preview();</script>"; // may need to call math.js and mathjax before PagedPolyfill.preview()
   c = c + "</body></html>";
   var htmlSource = a+b+c;
