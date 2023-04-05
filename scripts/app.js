@@ -10,7 +10,6 @@ editor.setValue(`# Heading 1
 ## Heading 2
 ### Heading 3
 This is paragraph 1 with **bold** words and an [image](https://d33wubrfki0l68.cloudfront.net/f1f475a6fda1c2c4be4cac04033db5c3293032b4/513a4/assets/images/markdown-mark-white.svg).
-
 This is paragraph 2 with \\italic\\ words and a [hyperlink](https://www.google.com).
 > blockquote
 $$a^2+b^2=c^2$$
@@ -35,7 +34,7 @@ function parseDoc(){
     b = b.replace(/!\[(.*?)\]\((.*?)\)/gim, "<img alt='$1' src='$2' />"); // ![alt text](image,jpg)
     b = b.replace(/\[(.*?)\]\((.*?)\)/gim, "<a href='$2'>$1</a>"); // [title](https://www.google.com)
     b = b.replace(/\n$/gim, '<br />'); // line break for each \n
-    //b = b.replace(/$$(.*)$$/gim, '<script>math.evaluate($1)</script>'); // $$ASCI math$$
+    b = b.replace(/$$(.*)$$/gim, '<script>math.evaluate($1)</script>'); // $$ASCI math$$
     b = b.replace(/^(?!<).*$/gim, '<p>$1</p>'); //no tag at beginning of line for paragraph
   var c = "<script>window.PagedPolyfill.preview();</script>"; // may need to call math.js and mathjax before PagedPolyfill.preview()
   c = c + "</body></html>";
