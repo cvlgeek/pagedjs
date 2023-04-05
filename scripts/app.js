@@ -22,7 +22,7 @@ function parseDoc(){
 <script>window.PagedConfig={auto:false,after:(flow)=>{console.log('after',flow)},};</script>
 <script src='https://cvlgeek.github.io/pagedjs/scripts/paged.polyfill.js'></script>
 <script src='https://cvlgeek.github.io/pagedjs/scripts/math.js'></script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <link href='https://cvlgeek.github.io/pagedjs/styles/paged.css' rel='stylesheet' type='text/css'/></head><body>`
   var b = editor.getValue(); // parse this for Markdown flags
     b = b.replace(/^### (.*$)/gim, '<h3>$1</h3>'); //### at beginning of line for H3
