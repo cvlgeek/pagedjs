@@ -31,7 +31,7 @@ function parseDoc(){
     b = b.replace(/^# (.*$)/gim, '<h1>$1</h1>'); // # at beginning of line for H1
     b = b.replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>'); // > at beginning of line for blockquotes
     b = b.replace(/\*\*(.*)\*\*/gim, '<b>$1</b>'); // **bold**
-    b = b.replace(/\\\(.*)\\\/gim, '<i>$1</i>'); // \\italics\\
+    b = b.replace(/\\{2}(.*)\\{2}/gim, '<i>$1</i>'); // \\italics\\
     b = b.replace(/!\[(.*?)\]\((.*?)\)/gim, "<img alt='$1' src='$2' />"); // ![alt text](image,jpg)
     b = b.replace(/\[(.*?)\]\((.*?)\)/gim, "<a href='$2'>$1</a>"); // [title](https://www.google.com)
     b = b.replace(/\n$/gim, '<br />'); // line break for each \n
