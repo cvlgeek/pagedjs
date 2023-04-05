@@ -34,7 +34,7 @@ function parseDoc(){
     b = b.replace(/!\[(.*?)\]\((.*?)\)/gim, "<img alt='$1' src='$2' />"); // ![alt text](image,jpg)
     b = b.replace(/\[(.*?)\]\((.*?)\)/gim, "<a href='$2'>$1</a>"); // [title](https://www.google.com)
     b = b.replace(/\n$/gim, '<br />'); // line break for each \n
-    b = b.replace(/$$(.*)$$/gim, '<script>math.evaluate($1)</script>'); // $$ASCI math$$
+    b = b.replace(/$$(.*)$$/gim, '<script>math.parse($1)</script>'); // $$ASCI math$$
     b = b.replace(/^(?!<).*$/gim, '<p>$1</p>'); //no tag at beginning of line for paragraph
   var c = "<script>window.PagedPolyfill.preview();</script>"; // may need to call math.js and mathjax before PagedPolyfill.preview()
   c = c + "</body></html>";
