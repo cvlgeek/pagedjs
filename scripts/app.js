@@ -10,6 +10,7 @@ editor.setValue(`# Heading 1
 ## Heading 2
 ### Heading 3
 This is paragraph 1 with **bold** words and an [image](https://d33wubrfki0l68.cloudfront.net/f1f475a6fda1c2c4be4cac04033db5c3293032b4/513a4/assets/images/markdown-mark-white.svg).
+
 This is paragraph 2 with \\italic\\ words and a [hyperlink](https://www.google.com).
 > blockquote
 $$a^2+b^2=c^2$$
